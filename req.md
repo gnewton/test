@@ -1,17 +1,12 @@
 FORMAT: 1A
 
-# Requests API
-Following the [Responses](05.%20Responses.md) example, this API will show you
-how to define multiple requests and what data these requests can bear. Let's
-demonstrate multiple requests on a trivial example of content negotiation.
+# DINA API Guidelines
+This document describes the guidelines for DINA Web APIs.
 
-## API Blueprint
-+ [Previous: Responses](05.%20Responses.md)
-+ [This: Raw API Blueprint](https://raw.github.com/apiaryio/api-blueprint/master/examples/06.%20Requests.md)
-+ [Next: Parameters](07.%20Parameters.md)
+The web API guidelines focus primarily on the two parts of the web API:
+- the structure of the URLs, their parameters, headers: Expressed using [blueprint-api](https://apiblueprint.org/) examples
+- json of requests and responses: Expressed internal to the blueprint examples, examples of request and response using [jsonapi.org](jsonapi.org)
 
-# Group Messages
-Group of all messages-related resources.
 
 ## Media [/media/}]
 
@@ -100,3 +95,19 @@ Group of all messages-related resources.
 
 
 ## Media [/media/count}]
+### Retrieve count of all media entity types json document, paged [GET]
++ Request JSON Message
+
+    + Headers
+            Accept: application/json
+	    
++ Response 200 (application/json)
+
+    + Body
+
+            {
+    		"comment": "json to come; jsonapi compliant",
+                "count": 12,
+            }
+
+## Media [/media/{mid}/{id}]
