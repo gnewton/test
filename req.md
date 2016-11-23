@@ -62,7 +62,7 @@ Only jsonapi links and data are used.
 
             {
                "links":{
-                  "self":"http://dina.org/media/{mid}"
+                  "self":"http://dina.org/media/001196a9-abef-419e-a8b7-f0a00157c588"
                },
                "data":[
                   {
@@ -85,6 +85,7 @@ Only jsonapi links and data are used.
                  "status": "404",
                  "title":  "id does not exist",
 		 "source": { "parameter": "id" },
+                 "detail":  "001196a9-abef-419e-a8b7-f0a00157c588",
                }
              ]
            }
