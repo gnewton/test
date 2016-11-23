@@ -106,17 +106,17 @@ Only jsonapi links and data are used.
         Accept: application/vnd.api+json
 + Request Update media type (application/vnd.api+json)
 
-                {
-		"comment": "json to come; jsonapi compliant",
-		}
+                {            
+                "comment": "json to come; jsonapi compliant",
+                }
 
 + Response 200
 
     + Body
 
-		{
+                {                
 		"comment": "json to come; jsonapi compliant",
-		}
+                }
 
 ### Retrieve only meta-data section for corresponding GET request [HEAD]
 
@@ -128,9 +128,9 @@ Only jsonapi links and data are used.
 
     + Body
 
-	{
+                {                
 		"comment": "json to come; jsonapi compliant",
-		}
+                }                
 
 
 
@@ -204,9 +204,9 @@ Only jsonapi links and data are used.
 
 + Body
 
-		{
+                {                
 		"comment": "json to come; jsonapi compliant",
-		}
+                }                
 
 
 ## Media [/media/{mid}/count]
@@ -220,10 +220,10 @@ Only jsonapi links and data are used.
 
 + Body
 
-		{
+                {                
 		"comment": "json to come; jsonapi compliant",
 		"count": 3827
-		}
+                }                
 
 
 ==================================================================
@@ -276,16 +276,16 @@ Only jsonapi links and data are used.
         Accept: application/vnd.api+json
 + Request Update media type (application/vnd.api+json)
 
-                {
+                {                
 		"comment": "json to come; jsonapi compliant",
-		}
+                }                
 
 + Response 200
 
     + Body
-                {
+                {                
 		"comment": "json to come; jsonapi compliant",
-		}
+                }
 
 ### Retrieve only meta-data section for corresponding GET request [HEAD]
 
@@ -296,9 +296,9 @@ Only jsonapi links and data are used.
 + Response 200
 
     + Body
-                {
+                {                
 		"comment": "json to come; jsonapi compliant",
-		}
+                }                
 
 
 
@@ -324,9 +324,30 @@ Get a range of items of type {mid}.
 + Response 200
 
     + Body
-                {
-		"comment": "json to come; jsonapi compliant",
-		}
+
+            {
+              "links":{
+              "self":"http://dina.org/media/images?minid=1&maxid=2"
+              "next": "http://dina.org/media/images?minid=3&maxid=10"
+              "last": "http://dina.org/media/images?minid=876&maxid=1000"
+               },
+               "data":[
+                  {
+                     "type":"image",
+                     "id":"1",
+                     "attributes":{
+                        "content_base64":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="
+                     },
+		     {
+                     "type":"image",
+                     "id":"2",
+                     "attributes":{
+                        "content_base64":"BpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaC="
+                     }
+                  }
+               ]
+            }
+
 
 
 
