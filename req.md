@@ -78,7 +78,7 @@ Only jsonapi links and data are used.
 
     + Body
 
-        {
+            {
          "errors": [
             {
             "status": "404",
