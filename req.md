@@ -79,15 +79,15 @@ Only jsonapi links and data are used.
     + Body
 
            {
-             "errors": [
-               {
-                 "status": "404",
-                 "title":  "id does not exist",
-		 "source": { "parameter": "id" },
-                 "detail":  "234",
-               }
-             ]
-           }
+           "errors": [
+            {
+            "status": "404",
+            "title":  "id does not exist",
+            "soource": { "parameter": "id" },
+                "detail":  "234",
+             }
+            ]
+            }
 
 
 ###  [POST]
