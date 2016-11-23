@@ -16,7 +16,7 @@ The web API guidelines focus primarily on the two parts of the web API:
     + Body
     
             {
-       "links":{
+                   "links":{
              "self":"http://dina.org/media"
 	        },
 		   "data":[
