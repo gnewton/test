@@ -11,7 +11,7 @@ The web API guidelines focus primarily on the two parts of the web API:
 ## Media [/media/}]
 
 ### Retrieve all media entity types json document, paged [GET]
-+ Response 200 (application/json)
++ Response 200 (application/vnd.api+json)
 
     + Body
     
@@ -47,31 +47,46 @@ The web API guidelines focus primarily on the two parts of the web API:
 + Request JSON Message
 
     + Headers
-            Accept: application/json
+            Accept: application/vnd.api+json
 	    
-+ Response 200 (application/json)
++ Response 200 (application/vnd.api+json)
 
     + Body
 
             {
-		"comment": "json to come; jsonapi compliant",
-		"mid": "images",
+               "links":{
+                  "self":"http://dina.org/media/{mid}"
+               },
+               "data":[
+                  {
+                     "type":"image",
+                     "id":"001196a9-abef-419e-a8b7-f0a00157c588",
+                     "attributes":{
+                        "image_base64":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="
+                     }
+                  }
+               ]
             }
 
-+ Response 404 (application/json)
++ Response 404 (application/vnd.api+json)
 
     + Body
 
-            {
-		"comment": "json to come; jsonapi compliant",
-	    	"error": "uuid does not exist"
-		}
+           {
+             "errors": [
+               {
+                 "status": "404",
+                 "title":  "UID does not exist",
+               }
+             ]
+           }
+
 
 ###  [POST]
 + Headers
-        Accept: application/json
+        Accept: application/vnd.api+json
 	    
-+ Response 405 (application/json)
++ Response 405 (application/vnd.api+json)
 
   + Body
   
@@ -85,8 +100,8 @@ The web API guidelines focus primarily on the two parts of the web API:
 ### Update a Message [PUT]
 
 + Headers
-        Accept: application/json
-+ Request Update media type (application/json)
+        Accept: application/vnd.api+json
++ Request Update media type (application/vnd.api+json)
 
                 {
 		"comment": "json to come; jsonapi compliant",
@@ -103,8 +118,8 @@ The web API guidelines focus primarily on the two parts of the web API:
 ### Retrieve only meta-data section for corresponding GET request [HEAD]
 
 + Headers
-        Accept: application/json
-+ Request Update media type (application/json)
+        Accept: application/vnd.api+json
++ Request Update media type (application/vnd.api+json)
 
 + Response 200
 
@@ -122,9 +137,9 @@ The web API guidelines focus primarily on the two parts of the web API:
 + Request JSON Message
 
     + Headers
-            Accept: application/json
+            Accept: application/vnd.api+json
 	    
-+ Response 200 (application/json)
++ Response 200 (application/vnd.api+json)
 
     + Body
 
@@ -136,7 +151,7 @@ The web API guidelines focus primarily on the two parts of the web API:
 
 ## Media [/media/{mid}]
 ### Retrieve all items of type {mid}, paged [GET]
-+ Response 200 (application/json)
++ Response 200 (application/vnd.api+json)
 
     + Body
 
@@ -148,11 +163,11 @@ The web API guidelines focus primarily on the two parts of the web API:
 
 ###  [POST]
 + Headers
-        Accept: application/json
+        Accept: application/vnd.api+json
 
-+ Request Add one or more items of entity type {mid} (application/json)
++ Request Add one or more items of entity type {mid} (application/vnd.api+json)
 
-+ Response 201 (application/json)
++ Response 201 (application/vnd.api+json)
 
 + Body
 
@@ -164,11 +179,11 @@ The web API guidelines focus primarily on the two parts of the web API:
 ## Media [/media/{mid}/count]
 ### Count of items of media type {mid} [GET]
 + Headers
-        Accept: application/json
+        Accept: application/vnd.api+json
 
-+ Request Add one or more items of entity type {mid} (application/json)
++ Request Add one or more items of entity type {mid} (application/vnd.api+json)
 
-+ Response 200 (application/json)
++ Response 200 (application/vnd.api+json)
 
 + Body
 
@@ -190,9 +205,9 @@ The web API guidelines focus primarily on the two parts of the web API:
 + Request JSON Message
 
     + Headers
-            Accept: application/json
+            Accept: application/vnd.api+json
 	    
-+ Response 200 (application/json)
++ Response 200 (application/vnd.api+json)
 
     + Body
 
@@ -202,7 +217,7 @@ The web API guidelines focus primarily on the two parts of the web API:
 		"id": "001196a9-abef-419e-a8b7-f0a00157c588",
             }
 
-+ Response 404 (application/json)
++ Response 404 (application/vnd.api+json)
 
     + Body
 
@@ -216,8 +231,8 @@ The web API guidelines focus primarily on the two parts of the web API:
 ### Update a Message [PUT]
 
 + Headers
-        Accept: application/json
-+ Request Update media type (application/json)
+        Accept: application/vnd.api+json
++ Request Update media type (application/vnd.api+json)
 
                 {
 		"comment": "json to come; jsonapi compliant",
@@ -233,8 +248,8 @@ The web API guidelines focus primarily on the two parts of the web API:
 ### Retrieve only meta-data section for corresponding GET request [HEAD]
 
 + Headers
-        Accept: application/json
-+ Request Update media type (application/json)
+        Accept: application/vnd.api+json
++ Request Update media type (application/vnd.api+json)
 
 + Response 200
 
@@ -262,7 +277,7 @@ Get a range of items of type {mid}.
 
 ### Retrieve first page of paged list of all matching data objects of type image, within id range 1000-2000, starting at OFFSET=0 and LIMIT=defaultLimitSize. [GET]
 + Headers
-        Accept: application/json
+        Accept: application/vnd.api+json
 
 + Response 200
 
@@ -284,7 +299,7 @@ Text search of one of the {mid} object's fields.
 
 ### Retrieve first page of paged list of all matching data objects of type image, within id range 1000-2000, starting at OFFSET=0 and LIMIT=defaultLimitSize. [GET]
 + Headers
-        Accept: application/json
+        Accept: application/vnd.api+json
 
 + Response 200
 
