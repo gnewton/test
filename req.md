@@ -64,15 +64,14 @@ Only jsonapi links and data are used.
                "links":{
                   "self":"http://dina.org/media/001196a9-abef-419e-a8b7-f0a00157c588"
                },
-               "data":[
+               "data":
                   {
                      "type":"image",
-                     "id":"001196a9-abef-419e-a8b7-f0a00157c588",
+                     "id":"1",
                      "attributes":{
-                        "content_base64":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="
+                        "description":"Supports JPG, GIF, PNG"
                      }
                   }
-               ]
             }
 
 + Response 404 (application/vnd.api+json)
@@ -85,7 +84,7 @@ Only jsonapi links and data are used.
                  "status": "404",
                  "title":  "id does not exist",
 		 "source": { "parameter": "id" },
-                 "detail":  "001196a9-abef-419e-a8b7-f0a00157c588",
+                 "detail":  "234",
                }
              ]
            }
@@ -97,13 +96,6 @@ Only jsonapi links and data are used.
 	    
 + Response 405 (application/vnd.api+json)
 
-  + Body
-  
-            {
-              "comment": "json to come; jsonapi compliant",
-            "id": "001196a9-abef-419e-a8b7-f0a00157c588",
-            "error": "uuid does not exist"
-            }
 
 
 ### Update a Message [PUT]
@@ -153,9 +145,19 @@ Only jsonapi links and data are used.
     + Body
 
             {
-    		"comment": "json to come; jsonapi compliant",
-                "count": 12,
+               "links":{
+                  "self":"http://dina.org/media/count"
+               },
+               "data":
+                  {
+                     "type":"count",
+                     "id":"1",
+                     "attributes":{
+                        "value": 54
+                     }
+                  }
             }
+
 
 
 ## Media [/media/{mid}]
