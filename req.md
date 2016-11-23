@@ -74,6 +74,7 @@ The web API guidelines focus primarily on the two parts of the web API:
 + Response 405 (application/json)
 
   + Body
+  
             {
                 "id": "abc123",
                 "title": "This is a note",
