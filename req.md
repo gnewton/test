@@ -14,6 +14,7 @@ The web API guidelines focus primarily on the two parts of the web API:
 + Response 200 (application/json)
 
     + Body
+
 {
    "links":{
       "self":"http://dina.org/media"
