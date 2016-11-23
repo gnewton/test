@@ -74,7 +74,15 @@ The web API guidelines focus primarily on the two parts of the web API:
 + Response 405 (application/json)
 
   + Body
-
+            {
+                "id": "abc123",
+                "title": "This is a note",
+                "content": "This is the note content."
+                "tags": [
+                    "todo",
+                    "home"
+                ]
+            }
             {
             "comment": "json to come; jsonapi compliant",
             "id": "001196a9-abef-419e-a8b7-f0a00157c588",
