@@ -21,21 +21,21 @@ The web API guidelines focus primarily on the two parts of the web API:
 	        },
 		   "data":[
 		         {
-			          "type":"media",
-				           "id":"1",
-					            "attributes":{
-						                "type":"images"
-								         }
-									       },
-									             {
-										              "type":"media",
-											               "id":"2",
-												                "attributes":{
-														            "type":"video"
-															             }
-																           }
-																	      ]
-																	      }
+         "type":"media",
+         "id":"1",
+         "attributes":{
+            "type":"images"
+         }
+      },
+      {
+         "type":"media",
+         "id":"2",
+         "attributes":{
+            "type":"video"
+         }
+      }
+   ]
+}
 
 
 ## Media [/media/{mid}]
@@ -76,10 +76,10 @@ The web API guidelines focus primarily on the two parts of the web API:
   + Body
 
             {
-		"comment": "json to come; jsonapi compliant",
-		"id": "001196a9-abef-419e-a8b7-f0a00157c588",
-                "error": "uuid does not exist"
-		}
+    "comment": "json to come; jsonapi compliant",
+    "id": "001196a9-abef-419e-a8b7-f0a00157c588",
+               "error": "uuid does not exist"
+    }
 
 
 ### Update a Message [PUT]
