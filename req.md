@@ -359,7 +359,7 @@ Get a range of items of type {mid}.
 
 
 
-
+# Filtering, sorting, etc
 
 ## Collections [/collectionobjets?search_field=taxon&search=Thaumotopea]
 Text search of one of the collectionobjects fields. 
