@@ -173,7 +173,7 @@ Only jsonapi links and data are used.
                "data":[
                   {
                      "type":"image",
-                     "id":"001196a9-abef-419e-a8b7-f0a00157c588",
+                     "id":"001196a9-abef-419e-7abc-588f0157ca00",
                      "attributes":{
                         "content_base64":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="
                      },
@@ -242,7 +242,7 @@ Only jsonapi links and data are used.
 
             {
                "links":{
-                  "self":"http://dina.org/media/{mid}"
+                  "self":"http://dina.org/media/001196a9-abef-419e-a8b7-f0a00157c588"
                },
                "data":[
                   {
