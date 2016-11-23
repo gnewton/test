@@ -75,11 +75,11 @@ The web API guidelines focus primarily on the two parts of the web API:
 
   + Body
 
-     {
-     "comment": "json to come; jsonapi compliant",
-     "id": "001196a9-abef-419e-a8b7-f0a00157c588",
-     "error": "uuid does not exist"
-      }
+            {
+            "comment": "json to come; jsonapi compliant",
+            "id": "001196a9-abef-419e-a8b7-f0a00157c588",
+            "error": "uuid does not exist"
+            }
 
 
 ### Update a Message [PUT]
