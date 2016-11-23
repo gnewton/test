@@ -79,7 +79,7 @@ Only jsonapi links and data are used.
     + Body
 
             {
-         "errors": [
+            "errors": [
             {
             "status": "404",
             "title":  "id does not exist",
