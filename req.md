@@ -14,10 +14,27 @@ The web API guidelines focus primarily on the two parts of the web API:
 + Response 200 (application/json)
 
     + Body
-
-            {
-		"comment": "json to come; jsonapi compliant",
-            }
+{
+   "links":{
+      "self":"http://dina.org/media"
+   },
+   "data":[
+      {
+         "type":"media",
+         "id":"1",
+         "attributes":{
+            "type":"images"
+         }
+      },
+      {
+         "type":"media",
+         "id":"2",
+         "attributes":{
+            "type":"video"
+         }
+      }
+   ]
+}
 
 
 ## Media [/media/{mid}]
