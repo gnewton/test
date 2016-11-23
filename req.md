@@ -7,6 +7,13 @@ The web API guidelines focus primarily on the two parts of the web API:
 - the structure of the URLs, their parameters, headers: Expressed using [blueprint-api](https://apiblueprint.org/) examples
 - json of requests and responses: Expressed internal to the blueprint examples, examples of request and response using [jsonapi.org](jsonapi.org)
 
+#jsonapi
+Web service json must adhere to the jsonapi standard v1.0, with the following exception:
+- In the section http://jsonapi.org/format/#crud-creating the datandard indicates:
+"The response MUST also include a document that contains the primary resource created.".
+For large media objects, moving extremely large data from the server back to the client after submission would be prohibitive from the bandwidth perspective.
+
+Only jsonapi links and data are used. 
 
 ## Media [/media/}]
 
@@ -62,7 +69,7 @@ The web API guidelines focus primarily on the two parts of the web API:
                      "type":"image",
                      "id":"001196a9-abef-419e-a8b7-f0a00157c588",
                      "attributes":{
-                        "image_base64":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="
+                        "content_base64":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="
                      }
                   }
                ]
@@ -76,7 +83,8 @@ The web API guidelines focus primarily on the two parts of the web API:
              "errors": [
                {
                  "status": "404",
-                 "title":  "UID does not exist",
+                 "title":  "id does not exist",
+		 "source": { "parameter": "id" },
                }
              ]
            }
@@ -156,8 +164,28 @@ The web API guidelines focus primarily on the two parts of the web API:
     + Body
 
             {
-		"comment": "json to come; jsonapi compliant",
+               "links":{
+                  "self":"http://dina.org/media/images"
+		  next": "http://dina.org/media/images?page[offset]=2&page[limit]=2",
+                 "last": "http://dina.org/media/images?page[offset]=967&page[limit]=2"
+               },
+               "data":[
+                  {
+                     "type":"image",
+                     "id":"001196a9-abef-419e-a8b7-f0a00157c588",
+                     "attributes":{
+                        "content_base64":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="
+                     },
+		     {
+                     "type":"image",
+                     "id":"778867a9-aaaa-419e-a8b7-f0a00157c588",
+                     "attributes":{
+                        "content_base64":"BpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaC="
+                     }
+                  }
+               ]
             }
+
 
 
 
@@ -212,9 +240,18 @@ The web API guidelines focus primarily on the two parts of the web API:
     + Body
 
             {
-		"comment": "json to come; jsonapi compliant",
-		"mid": "images",
-		"id": "001196a9-abef-419e-a8b7-f0a00157c588",
+               "links":{
+                  "self":"http://dina.org/media/{mid}"
+               },
+               "data":[
+                  {
+                     "type":"image",
+                     "id":"001196a9-abef-419e-a8b7-f0a00157c588",
+                     "attributes":{
+                        "content_base64":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="
+                     }
+                  }
+               ]
             }
 
 + Response 404 (application/vnd.api+json)
