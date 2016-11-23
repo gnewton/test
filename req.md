@@ -165,9 +165,9 @@ Only jsonapi links and data are used.
     + Body
 
             {
-               "links":{
-                  "self":"http://dina.org/media/images"
-		  next": "http://dina.org/media/images?page[offset]=2&page[limit]=2",
+              "links":{
+              "self":"http://dina.org/media/images"
+              "next": "http://dina.org/media/images?page[offset]=2&page[limit]=2",
                  "last": "http://dina.org/media/images?page[offset]=967&page[limit]=2"
                },
                "data":[
