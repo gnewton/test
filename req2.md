@@ -1,4 +1,4 @@
-FORMAT: 1A
+MAT: 1A
 
 # DINA API Guidelines
 This document describes the guidelines for DINA Web APIs.
@@ -13,15 +13,15 @@ Web service json must adhere to the jsonapi standard v1.0, with the following ex
 "The response MUST also include a document that contains the primary resource created.".
 For large media objects, moving extremely large data from the server back to the client after submission would be prohibitive from the bandwidth perspective.
 
-Only jsonapi links and data are used. 
+Only jsonapi links and data are used.
 
-## Media [/media/}]
+## Media [/media/]
 
 ### Retrieve all media entity types json document, paged [GET]
 + Response 200 (application/vnd.api+json)
 
     + Body
-    
+
             {
                "links":{
                   "self":"http://dina.org/media"
@@ -51,16 +51,16 @@ Only jsonapi links and data are used.
 
 ### Retrieve a media type [GET]
 
-+ Request JSON Message
-
-    + Headers
+        + Request JSON Message
+        + Headers
             Accept: application/vnd.api+json
-	    
+
 + Response 200 (application/vnd.api+json)
 
     + Body
 
             {
+                      {
                "links":{
                   "self":"http://dina.org/media/001196a9-abef-419e-a8b7-f0a00157c588"
                },
@@ -92,56 +92,18 @@ Only jsonapi links and data are used.
             }
 
 
-###  [POST]
-+ Headers
-        Accept: application/vnd.api+json
-	    
-+ Response 405 (application/vnd.api+json)
-
-
-
-### Update a Message [PUT]
-
-+ Headers
-        Accept: application/vnd.api+json
-+ Request Update media type (application/vnd.api+json)
-
-                {            
-                "comment": "json to come; jsonapi compliant",
-                }
-
-+ Response 200
-
-    + Body
-
-                {                
-		"comment": "json to come; jsonapi compliant",
-                }
-
-### Retrieve only meta-data section for corresponding GET request [HEAD]
-
-+ Headers
-        Accept: application/vnd.api+json
-+ Request Update media type (application/vnd.api+json)
-
-+ Response 200
-
-    + Body
-
-                {                
-		"comment": "json to come; jsonapi compliant",
-                }                
 
 
 
 
-## Media [/media/count}]
+
+
+## Media [/media/{count}]
 ### Retrieve count of all media entity types json document, paged [GET]
-+ Request JSON Message
-
-    + Headers
+        + Request JSON Message
+        + Headers
             Accept: application/vnd.api+json
-	    
+
 + Response 200 (application/vnd.api+json)
 
     + Body
@@ -162,7 +124,7 @@ Only jsonapi links and data are used.
 
 
 
-## Media [/media/{mid}]
+## Media [/media/{mid}/]
 ### Retrieve all items of type {mid}, paged [GET]
 + Response 200 (application/vnd.api+json)
 
@@ -181,7 +143,9 @@ Only jsonapi links and data are used.
                      "attributes":{
                         "content_base64":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="
                      },
-		     {
+                     {
+                     
+                      {
                      "type":"image",
                      "id":"778867a9-aaaa-419e-a8b7-f0a00157c588",
                      "attributes":{
@@ -194,39 +158,25 @@ Only jsonapi links and data are used.
 
 
 
-###  [POST]
-+ Headers
-        Accept: application/vnd.api+json
-
-+ Request Add one or more items of entity type {mid} (application/vnd.api+json)
-
-+ Response 201 (application/vnd.api+json)
-
-+ Body
-
-                {                
-		"comment": "json to come; jsonapi compliant",
-                }                
 
 
 ## Media [/media/{mid}/count]
 ### Count of items of media type {mid} [GET]
-+ Headers
+    + Headers
         Accept: application/vnd.api+json
 
 + Request Add one or more items of entity type {mid} (application/vnd.api+json)
 
 + Response 200 (application/vnd.api+json)
 
-+ Body
+    + Body
 
-                {                
-		"comment": "json to come; jsonapi compliant",
-		"count": 3827
-                }                
+                {
+                "comment": "json to come; jsonapi compliant",
+                "count": 3827
+                }
 
 
-==================================================================
 
 ## Media [/media/{mid}/{id}]
 + Parameters
@@ -237,10 +187,11 @@ Only jsonapi links and data are used.
 
 + Request JSON Message
 
-    + Headers
+        + Headers
             Accept: application/vnd.api+json
-	    
+
 + Response 200 (application/vnd.api+json)
+
 
     + Body
 
@@ -263,15 +214,15 @@ Only jsonapi links and data are used.
     + Body
 
             {
-		"comment": "json to come; jsonapi compliant",
-		"mid": "images",
-		"id": "001196a9-abef-419e-a8b7-f0a00157c588",
-	    	"error": "id does not exist"
-		}
+                "comment": "json to come; jsonapi compliant",
+                "mid": "images",
+                "id": "001196a9-abef-419e-a8b7-f0a00157c588",
+                "error": "id does not exist"
+                }
 
 ### Update an image [PUT]
 
-+ Headers
+    + Headers
         Accept: application/vnd.api+json
 + Request Update media type (application/vnd.api+json)
 
@@ -291,22 +242,10 @@ Only jsonapi links and data are used.
 + Response 200
 
     + Body
-                {                
-		"comment": "json to come; jsonapi compliant",
+                {
+                "comment": "json to come; jsonapi compliant",
                 }
 
-### Retrieve only meta-data section for corresponding GET request [HEAD]
-
-+ Headers
-        Accept: application/vnd.api+json
-+ Request Update media type (application/vnd.api+json)
-
-+ Response 200
-
-    + Body
-                {                
-		"comment": "json to come; jsonapi compliant",
-                }                
 
 
 
@@ -316,8 +255,7 @@ Only jsonapi links and data are used.
 
 
 
-
-## Media [/media/{mid}?minid={minid}&maxid={maxid}}]
+## Media [/media/{mid}?minid={minid}&maxid={maxid}]
 Get a range of items of type {mid}.
 
 
@@ -325,9 +263,7 @@ Get a range of items of type {mid}.
     + minid: internal key identifier, min value
     + maxid: internal key identifier, max value
 
-###
-Retrieve first page of paged list of all matching data objects of type image, within id range 1000-2000, starting at OFFSET=0 and LIMIT=defaultLimitSize. [GET]
-
+### [GET]
 + Headers
         Accept: application/vnd.api+json
 
@@ -348,7 +284,7 @@ Retrieve first page of paged list of all matching data objects of type image, wi
                      "attributes":{
                         "content_base64":"TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4="
                      },
-		     {
+                     {
                      "type":"image",
                      "id":"2",
                      "attributes":{
@@ -360,46 +296,5 @@ Retrieve first page of paged list of all matching data objects of type image, wi
 
 
 
-
-# Filtering, sorting, etc
-
-## Collections [/collectionobjets?search_field=taxon&search=Thaumotopea]
-Text search of one of the collectionobjects fields. 
-
-+ Parameters
-    + search_field: the field of the item to be searched
-    + search: the term or regex search
-
-### Retrieve first page of paged list of all matching data objects of type image, within id range 1000-2000, starting at OFFSET=0 and LIMIT=defaultLimitSize. [GET]
-+ Headers
-        Accept: application/vnd.api+json
-
-+ Response 200
-
-    + Body
-
-            {
-              "links":{
-              "self":"/collectionobjets?search_field=taxon&search=Thaumotopea"
-              "next": "/collectionobjets?search_field=taxon&search=Thaumotopea&page[offset]=2&page[limit]=2"
-              "last": "/collectionobjets?search_field=taxon&search=Thaumotopea&page[offset]=234&page[limit]=2"
-
-               },
-               "data":[
-                  {
-                     "type":"collectionobject",
-                     "id":"7",
-                     "attributes":{
-                        "taxon": "Thaumotopea foo"
-                     },
-		     {
-                     "type":"collectionobject",
-                     "id":"43",
-                     "attributes":{
-                        "taxon": "Thaumotopea bar"
-                     }
-                  }
-               ]
-            }
 
 
